@@ -1,0 +1,71 @@
+[New LWP 24573]
+[New LWP 24572]
+[New LWP 24571]
+[New LWP 24570]
+[New LWP 24569]
+[New LWP 24568]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+0x00007f2b60b27f47 in pthread_join () from /lib64/libpthread.so.0
+
+Thread 7 (Thread 0x7f2b5f755700 (LWP 24568)):
+#0  0x00007f2b5f854603 in epoll_wait () from /lib64/libc.so.6
+#1  0x0000000000401e94 in MainTcpEpollThread (lpParam=0x0) at TCPFunction.cpp:146
+#2  0x00007f2b60b26dd5 in start_thread () from /lib64/libpthread.so.0
+#3  0x00007f2b5f85402d in clone () from /lib64/libc.so.6
+
+Thread 6 (Thread 0x7f2b5ef54700 (LWP 24569)):
+#0  0x00007f2b5f854603 in epoll_wait () from /lib64/libc.so.6
+#1  0x00000000004022f5 in ActionTcpEpoolThread (lpParam=0x7f2b58000ed0) at TCPFunction.cpp:261
+#2  0x00007f2b60b26dd5 in start_thread () from /lib64/libpthread.so.0
+#3  0x00007f2b5f85402d in clone () from /lib64/libc.so.6
+
+Thread 5 (Thread 0x7f2b5e753700 (LWP 24570)):
+#0  0x00007f2b5f81ac09 in waitpid () from /lib64/libc.so.6
+#1  0x00007f2b5f798ea2 in do_system () from /lib64/libc.so.6
+#2  0x00007f2b5f799251 in system () from /lib64/libc.so.6
+#3  0x00000000004015ec in Dump (signo=11) at GeneralFunction.cpp:59
+#4  <signal handler called>
+#5  0x00007f2b5f8ac725 in __memcpy_ssse3_back () from /lib64/libc.so.6
+#6  0x00007f2b6038d875 in memcpy (__len=5, __src=0x7f2b5e752730, __dest=<optimized out>) at /usr/include/bits/string3.h:51
+#7  net_write_buff (net=0x7f2b5e752940, packet=0x7f2b5e752730 "l\001", len=5) at /export/home/pb2/build/sb_0-33225970-1552643522.34/rpm/BUILD/mysql-5.6.44/mysql-5.6.44/sql/net_serv.cc:473
+#8  0x00007f2b6038deaf in net_write_command (net=net@entry=0x7f2b5e752940, command=command@entry=3 '\003', header=header@entry=0x0, head_len=head_len@entry=0, packet=packet@entry=0x7f2b5e752840 "SELECT \t\t\tsensor_value.sendata,sensor_value.sensortype,sensor_value.deviceid,\t\t\tsensor_value.roomid,sensor_value.addrid,sensor_value.sensorid,\t\t\tdevice_sensor.upplimit,device_sensor.lowlimit \t\t\tFROM \t"..., len=len@entry=363) at /export/home/pb2/build/sb_0-33225970-1552643522.34/rpm/BUILD/mysql-5.6.44/mysql-5.6.44/sql/net_serv.cc:395
+#9  0x00007f2b60389573 in cli_advanced_command (mysql=0x7f2b5e752940, command=<optimized out>, header=0x0, header_length=0, arg=0x7f2b5e752840 "SELECT \t\t\tsensor_value.sendata,sensor_value.sensortype,sensor_value.deviceid,\t\t\tsensor_value.roomid,sensor_value.addrid,sensor_value.sensorid,\t\t\tdevice_sensor.upplimit,device_sensor.lowlimit \t\t\tFROM \t"..., arg_length=363, skip_check=1 '\001', stmt=0x0) at /export/home/pb2/build/sb_0-33225970-1552643522.34/rpm/BUILD/mysql-5.6.44/mysql-5.6.44/sql-common/client.c:746
+#10 0x00007f2b60386c31 in mysql_send_query (mysql=mysql@entry=0x7f2b5e752940, query=<optimized out>, length=<optimized out>) at /export/home/pb2/build/sb_0-33225970-1552643522.34/rpm/BUILD/mysql-5.6.44/mysql-5.6.44/sql-common/client.c:4326
+#11 0x00007f2b60386c51 in mysql_real_query (mysql=0x7f2b5e752940, query=<optimized out>, length=<optimized out>) at /export/home/pb2/build/sb_0-33225970-1552643522.34/rpm/BUILD/mysql-5.6.44/mysql-5.6.44/sql-common/client.c:4338
+#12 0x000000000040322e in ClientQueryValue (dwClientIP=1577101504, lpPackHead=0x7f2b58001168, dwPacketBytes=64) at MySQLFunction.cpp:99
+#13 0x0000000000402dc4 in ActionTcpPack (dwClientIP=1577101504, lpPackHead=0x7f2b58001168, dwPacketBytes=64) at TCPFunction.cpp:562
+#14 0x00000000004029fb in ActionTcpConnectThread (lpParam=0x7f2b58000ed0) at TCPFunction.cpp:472
+#15 0x00007f2b60b26dd5 in start_thread () from /lib64/libpthread.so.0
+#16 0x00007f2b5f85402d in clone () from /lib64/libc.so.6
+
+Thread 4 (Thread 0x7f2b5df52700 (LWP 24571)):
+#0  0x00007f2b60b2d4ed in __lll_lock_wait () from /lib64/libpthread.so.0
+#1  0x00007f2b60b28dcb in _L_lock_883 () from /lib64/libpthread.so.0
+#2  0x00007f2b60b28c98 in pthread_mutex_lock () from /lib64/libpthread.so.0
+#3  0x00000000004017cc in GetIOList (lpHead=0x7f2b58000ed8, lpEnd=0x7f2b58000f1e, hOptionPV=0x7f2b58001030, hFreePV=0x7f2b58001000, dwWait=1) at ListFunction.cpp:20
+#4  0x00000000004029cf in ActionTcpConnectThread (lpParam=0x7f2b58000ed0) at TCPFunction.cpp:469
+#5  0x00007f2b60b26dd5 in start_thread () from /lib64/libpthread.so.0
+#6  0x00007f2b5f85402d in clone () from /lib64/libc.so.6
+
+Thread 3 (Thread 0x7f2b5d751700 (LWP 24572)):
+#0  0x00007f2b60b2d4ed in __lll_lock_wait () from /lib64/libpthread.so.0
+#1  0x00007f2b60b28dcb in _L_lock_883 () from /lib64/libpthread.so.0
+#2  0x00007f2b60b28c98 in pthread_mutex_lock () from /lib64/libpthread.so.0
+#3  0x00000000004017cc in GetIOList (lpHead=0x7f2b58000ed8, lpEnd=0x7f2b58000f1e, hOptionPV=0x7f2b58001030, hFreePV=0x7f2b58001000, dwWait=1) at ListFunction.cpp:20
+#4  0x00000000004029cf in ActionTcpConnectThread (lpParam=0x7f2b58000ed0) at TCPFunction.cpp:469
+#5  0x00007f2b60b26dd5 in start_thread () from /lib64/libpthread.so.0
+#6  0x00007f2b5f85402d in clone () from /lib64/libc.so.6
+
+Thread 2 (Thread 0x7f2b5cf50700 (LWP 24573)):
+#0  0x00007f2b60b2d4ed in __lll_lock_wait () from /lib64/libpthread.so.0
+#1  0x00007f2b60b28dcb in _L_lock_883 () from /lib64/libpthread.so.0
+#2  0x00007f2b60b28c98 in pthread_mutex_lock () from /lib64/libpthread.so.0
+#3  0x00000000004017cc in GetIOList (lpHead=0x7f2b58000ed8, lpEnd=0x7f2b58000f1e, hOptionPV=0x7f2b58001030, hFreePV=0x7f2b58001000, dwWait=1) at ListFunction.cpp:20
+#4  0x00000000004029cf in ActionTcpConnectThread (lpParam=0x7f2b58000ed0) at TCPFunction.cpp:469
+#5  0x00007f2b60b26dd5 in start_thread () from /lib64/libpthread.so.0
+#6  0x00007f2b5f85402d in clone () from /lib64/libc.so.6
+
+Thread 1 (Thread 0x7f2b60f43740 (LWP 24567)):
+#0  0x00007f2b60b27f47 in pthread_join () from /lib64/libpthread.so.0
+#1  0x0000000000401489 in main (argc=1, argv=0x7ffd4d67e9c8) at Main.cpp:16
